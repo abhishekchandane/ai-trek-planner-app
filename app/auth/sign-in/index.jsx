@@ -5,13 +5,14 @@ import { useNavigation, useRouter } from 'expo-router'
 import React, { Component, useEffect } from 'react'
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { Colors } from './../../../constants/Colors' 
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function SignIn() {
     const navigation = useNavigation();
     const router = useRouter();
     useEffect(()=>{ 
       navigation.setOptions({
-        // headerShown : false
+        headerShown : false
       })
 
     } ,[])
@@ -20,7 +21,11 @@ export default function SignIn() {
       <View style={{
         padding:24,  
         backgroundColor:'tomato', 
-        height:'100%', paddingTop:80}}>
+        height:'100%', paddingTop:80}}   > 
+
+        <TouchableOpacity onPress={ ()=>router.back() }>
+           <Ionicons style={{ marginBottom:30 }} name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
 
         <Text 
           style={{ fontFamily:'outfit-bold', fontSize:30, color:Colors.WHITE }}> 
